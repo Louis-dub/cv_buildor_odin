@@ -5,22 +5,22 @@ export default function Header() {
     return (
         <header className="bg-gray-900">
             <nav className="flex justify-around items-center p-5">
-                <div>
-                    <a href="#" className="flex items-center">
-                        <img
-                            alt=""
-                            src={Logo}
-                            className="h-10 w-auto"
-                        />
-                        <span className="ml-3 text-white text-xl font-bold">CV Buildor</span>
-                    </a>
-                </div>
-                <div>
-                    <button className="text-xl text-white font-bold border-4 border-white rounded-[15px] p-2">New CV</button>
+                <div className="flex items-center">
+                     <img
+                         alt=""
+                         src={Logo}
+                         className="h-10 w-auto"
+                     />
+                    <span className="ml-3 text-white text-xl font-bold">CV Buildor</span>
                 </div>
                 <div>
                     <button
-                        className="text-xl text-white font-bold flex items-center gap-1"
+                        className="text-xl text-white font-bold border-4 border-white rounded-[15px] p-2 hover:scale-110 active:scale-95 transition-all ease-out"
+                    >New CV</button>
+                </div>
+                <div>
+                    <button
+                        className="text-xl text-white font-bold flex items-center gap-1 hover:scale-110 active:scale-95 transition-all ease-out"
                     >
                         <FaFileDownload size={24} />
                          Download
