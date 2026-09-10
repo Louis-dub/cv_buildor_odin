@@ -42,7 +42,6 @@ export default function DownloadSheet() {
             }
             fileName="cv.pdf"
         >
-            {({ loading }) => (loading ? 'Génération du PDF...' : 'Télécharger le PDF')}
         </PDFDownloadLink>
     );
 }

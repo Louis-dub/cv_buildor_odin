@@ -31,7 +31,10 @@ export default function App() {
                     </div>
                 </div>
                 <div className='pt-[75px]'>
-                    <CvSheet />
+                    <CvSheet
+                        nameValue={nameValue}
+                        jobValue={jobValue}
+                    />
                 </div>
             </main>
         </div>
