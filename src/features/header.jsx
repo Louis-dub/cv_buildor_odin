@@ -4,7 +4,7 @@ import { FaFileDownload } from 'react-icons/fa';
 
 export default function Header() {
     return (
-        <header className="bg-gray-900">
+        <header className="bg-gray-900 border-b-[5px] border-black">
             <nav className="flex justify-around items-center p-5">
                 <div className="flex items-center">
                      <img
