@@ -21,7 +21,7 @@ export default function App() {
             <main className="flex-1 grid grid-cols-[2fr_3fr] gap-6 bg-gray-400">
                 <div className="flex flex-col items-end pt-[100px]">
                     <div>
-                        <h1>General Inforamtion</h1>
+                        <h1 className="text-2xl font-bold">General Inforamtion</h1>
                         <HeaderCreator
                             nameValue={nameValue}
                             jobValue={jobValue}
