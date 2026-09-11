@@ -13,7 +13,7 @@ export default function InputPhoneNumber({ placeholder = "", value, onChange }) 
         while (newVal.length > 14)
             newVal = newVal.slice(0, -1);
         if (newVal && !regex.test(newVal))
-            setError("Invalid format");
+            setError("Invalid phone number format");
         else
             setError("");
         setLen(String(newVal).length);

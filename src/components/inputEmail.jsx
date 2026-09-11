@@ -8,7 +8,7 @@ export default function InputEmail({ placeholder = "", value, onChange }) {
         const newVal = e.target.value;
 
         if (newVal && !regex.test(newVal))
-            setError("Invalid format");
+            setError("Invalid email format");
         else
             setError("");
         onChange(newVal);
