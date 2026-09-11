@@ -13,7 +13,7 @@ export default function InputPhoneNumber({ placeholder = "", value, onChange }) 
         while (newVal.length > 14)
             newVal = newVal.slice(0, -1);
         if (newVal && !regex.test(newVal))
-            setError("Invalid date format");
+            setError("Invalid format");
         else
             setError("");
         setLen(String(newVal).length);
@@ -22,13 +22,15 @@ export default function InputPhoneNumber({ placeholder = "", value, onChange }) 
 
     return (
         <>
-            <input
-                type="tel"
-                className="w-[140px] h-10 p-3 border border-black rounded-[5px] focus:outline-none focus:ring-1"
-                placeholder={placeholder}
-                value={value}
-                onChange={handleChange}
-            />
+            <div className="flex items-center gap-2 w-80 justify-between">
+                <span>{placeholder}</span>
+                <input
+                    type="tel"
+                    className="w-[160px] h-10 p-3 border border-black rounded-[5px] focus:outline-none focus:ring-1"
+                    value={value}
+                    onChange={handleChange}
+                />
+            </div>
             {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </>
     );

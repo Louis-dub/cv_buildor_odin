@@ -1,12 +1,16 @@
+import { useState } from 'react';
+import { usePDF } from 'react-to-pdf';
 import Header from './features/header';
 import CvSheet from './features/cvSheet';
-import { useState } from 'react';
 import HeaderCreator from './features/headerCreator';
-import { usePDF } from 'react-to-pdf';
+import Sidebar from './features/sidebar';
 
 export default function App() {
     const [nameValue, setNameValue] = useState("");
     const [jobValue, setJobValue] = useState("");
+    const [callValue, setCallValue] = useState("");
+    const [emailValue, setEmailValue] = useState("");
+    const [githubValue, setGithubValue] = useState("");
 
     const { toPDF, targetRef } = usePDF({
         filename: `${nameValue.replace(/\s+/g, '_')}_CV.pdf`,
@@ -18,6 +22,18 @@ export default function App() {
 
     function handleChangeJob(newVal) {
         setJobValue(newVal);
+    }
+
+    function handleChangeCall(newVal) {
+        setCallValue(newVal);
+    }
+
+    function handleChangeEmail(newVal) {
+        setEmailValue(newVal);
+    }
+
+    function handleChangeGithub(newVal) {
+        setGithubValue(newVal);
     }
     
     return (
@@ -32,6 +48,14 @@ export default function App() {
                             jobValue={jobValue}
                             onNameChange={handleChangeName}
                             onJobChange={handleChangeJob}
+                        />
+                        <Sidebar
+                            call={callValue}
+                            email={emailValue}
+                            github={githubValue}
+                            onCallChange={handleChangeCall}
+                            onEmailChange={handleChangeEmail}
+                            onGithubChange={handleChangeGithub}
                         />
                     </div>
                 </div>
