@@ -1,8 +1,7 @@
 import Logo from '../assets/cv_buildor_logo.png';
-import DownloadSheet from './downloadSheet';
 import { FaFileDownload } from 'react-icons/fa';
 
-export default function Header() {
+export default function Header({ onDownload }) {
     return (
         <header className="bg-gray-900 border-b-[5px] border-black">
             <nav className="flex justify-around items-center p-5">
@@ -21,11 +20,11 @@ export default function Header() {
                 </div>
                 <div>
                     <button
+                        onClick={onDownload}
                         className="text-xl text-white font-bold flex items-center gap-1 hover:scale-110 active:scale-95 transition-all ease-out"
                     >
                         <FaFileDownload size={24} />
-                        Download
-                        <DownloadSheet />                       
+                        Download                      
                   </button>
                 </div>
             </nav>
