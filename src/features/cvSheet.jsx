@@ -10,7 +10,8 @@ export default function CvSheet({
     languages,
     libraries,
     tools,
-    langs
+    langs,
+    hobbies
 }) {
     return (
         <div
@@ -71,6 +72,8 @@ export default function CvSheet({
                                 );
                             })}
                         </ul>
+                        <h1 className="text-xl font-bold">Interests and Hobbies</h1>
+                        <p>{hobbies}</p>
                     </div>
                 </div>
                 <div className="flex flex-col gap-16 p-[30px]">

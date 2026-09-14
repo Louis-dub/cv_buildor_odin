@@ -15,6 +15,7 @@ export default function App() {
     const [librarysValue, setLibraryesValue] = useState([]);
     const [toolsValue, setToolsValue] = useState([]);
     const [langValue, setLangValue] = useState([]);
+    const [hobbies, setHobbies] = useState("");
 
     const contentRef = useRef(null);
 
@@ -44,6 +45,7 @@ export default function App() {
                             librarys={librarysValue}
                             tools={toolsValue}
                             langs={langValue}
+                            hobbies={hobbies}
                             onCallChange={setCallValue}
                             onEmailChange={setEmailValue}
                             onGithubChange={setGithubValue}
@@ -51,6 +53,7 @@ export default function App() {
                             onLibrarysChange={setLibraryesValue}
                             onToolsChange={setToolsValue}
                             onLangsChange={setLangValue}
+                            onHobbiesChange={setHobbies}
                         />
                     </div>
                 </div>
@@ -66,6 +69,7 @@ export default function App() {
                         libraries={librarysValue}
                         tools={toolsValue}
                         langs={langValue}
+                        hobbies={hobbies}
                     />
                 </div>
             </main>

@@ -1,8 +1,8 @@
 import InputPhoneNumber from '../components/inputPhoneNumber';
 import InputEmail from '../components/inputEmail';
 import InputText from '../components/inputText';
+import InputTextArea from '../components/inputTextArea';
 import { FaPlus } from 'react-icons/fa';
-import { useState } from 'react';
 import InputTextWithTrash from '../components/inputTextWithTrash';
 
 export default function Sidebar({
@@ -13,13 +13,15 @@ export default function Sidebar({
     librarys,
     tools,
     langs,
+    hobbies,
     onCallChange,
     onEmailChange,
     onGithubChange,
     onLanguagesChange,
     onLibrarysChange,
     onToolsChange,
-    onLangsChange
+    onLangsChange,
+    onHobbiesChange
 }) {
     function handleAddSkills(programInput, setProgramInput) {
         setProgramInput([...programInput, ""]);
@@ -101,7 +103,7 @@ export default function Sidebar({
                 {langs.map((input, index) => (
                     <InputTextWithTrash
                         key={index}
-                        placeholder="New Skill"
+                        placeholder="New language"
                         value={input}
                         onChange={(e) => handleSetValue(e.target.value, index, langs, onLangsChange)}
                         onDelete={() => handleRemoveInput(index, langs, onLangsChange)}
@@ -114,6 +116,14 @@ export default function Sidebar({
                     <FaPlus />
                     Add Language
                 </button>
+            </div>
+            <h1 className="text-xl font-bold">Interests and Hobbies</h1>
+            <div className="mt-2 mb-4 border border-black rounded-[15px] p-4 flex flex-col items-center gap-2 bg-gray-200">
+                <InputTextArea
+                    placeholder="Your hobbies or area of interest"
+                    value={hobbies}
+                    onChange={onHobbiesChange}
+                />
             </div>
         </>
     );
