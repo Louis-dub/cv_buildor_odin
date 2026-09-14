@@ -14,6 +14,7 @@ export default function App() {
     const [languagesValue, setLanguagesValue] = useState([]);
     const [librarysValue, setLibraryesValue] = useState([]);
     const [toolsValue, setToolsValue] = useState([]);
+    const [langValue, setLangValue] = useState([]);
 
     const contentRef = useRef(null);
 
@@ -42,12 +43,14 @@ export default function App() {
                             languages={languagesValue}
                             librarys={librarysValue}
                             tools={toolsValue}
+                            langs={langValue}
                             onCallChange={setCallValue}
                             onEmailChange={setEmailValue}
                             onGithubChange={setGithubValue}
                             onLanguagesChange={setLanguagesValue}
                             onLibrarysChange={setLibraryesValue}
                             onToolsChange={setToolsValue}
+                            onLangsChange={setLangValue}
                         />
                     </div>
                 </div>
@@ -62,6 +65,7 @@ export default function App() {
                         languages={languagesValue}
                         libraries={librarysValue}
                         tools={toolsValue}
+                        langs={langValue}
                     />
                 </div>
             </main>

@@ -12,12 +12,14 @@ export default function Sidebar({
     languages,
     librarys,
     tools,
+    langs,
     onCallChange,
     onEmailChange,
     onGithubChange,
     onLanguagesChange,
     onLibrarysChange,
-    onToolsChange
+    onToolsChange,
+    onLangsChange
 }) {
     function handleAddSkills(programInput, setProgramInput) {
         setProgramInput([...programInput, ""]);
@@ -92,6 +94,25 @@ export default function Sidebar({
                 >
                     <FaPlus />
                     Add tool
+                </button>
+            </div>
+            <h1 className="text-xl font-bold">Languages</h1>
+            <div className="mt-2 mb-4 border border-black rounded-[15px] p-4 flex flex-col items-center gap-2 bg-gray-200">
+                {langs.map((input, index) => (
+                    <InputTextWithTrash
+                        key={index}
+                        placeholder="New Skill"
+                        value={input}
+                        onChange={(e) => handleSetValue(e.target.value, index, langs, onLangsChange)}
+                        onDelete={() => handleRemoveInput(index, langs, onLangsChange)}
+                    />
+                ))}
+                <button
+                    onClick={() => handleAddSkills(langs, onLangsChange)}
+                    className="w-80 text-white bg-gray-900 rounded-[10px] p-2 flex items-center gap-1 hover:scale-105 active:scale-95 transition-all ease-out"
+                >
+                    <FaPlus />
+                    Add Language
                 </button>
             </div>
         </>

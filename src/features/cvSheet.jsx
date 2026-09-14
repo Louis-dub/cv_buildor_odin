@@ -10,6 +10,7 @@ export default function CvSheet({
     languages,
     libraries,
     tools,
+    langs
 }) {
     return (
         <div
@@ -59,6 +60,16 @@ export default function CvSheet({
                             <li>
                                 <span>Tools: {tools.join(", ")} </span>
                             </li>
+                        </ul>
+                        <h1 className="text-xl font-bold">Languages</h1>
+                        <ul>
+                            {langs.map(lang => {
+                                return (
+                                    <li>
+                                        <span>{lang}</span>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                 </div>
