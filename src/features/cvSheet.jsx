@@ -73,7 +73,7 @@ export default function CvSheet({
                             })}
                         </ul>
                         <h1 className="text-xl font-bold">Interests and Hobbies</h1>
-                        <p>{hobbies}</p>
+                        <p style={{ whiteSpace: 'pre-line' }}>{hobbies}</p>
                     </div>
                 </div>
                 <div className="flex flex-col gap-16 p-[30px]">
