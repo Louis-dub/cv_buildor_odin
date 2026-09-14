@@ -12,11 +12,11 @@ export default function CvSheet({
     return (
         <div
             ref={contentRef}
-            className="w-[210mm] min-h-[290mm] p-[30px] bg-[#f8f8f8] border border-[#e0e0e0] rounded-[2px] shadow-[0_0_10px_rgba(0, 0, 0, 0.1)] m-[20px_auto]"
+            className="w-[210mm] h-[297mm] bg-[#f8f8f8] border border-[#e0e0e0] rounded-[2px] shadow-[0_0_10px_rgba(0, 0, 0, 0.1)]"
         >
-            <div className="grid grid-cols-[1fr_2fr] gap-4">
-                <div className="flex flex-col gap-8 pt-[200px]">
-                    <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-[1fr_2fr] gap-4 h-[100%] min-h-[100%]">
+                <div className="flex flex-col h-[100%] gap-8 bg-blue-950 p-[30px] text-white">
+                    <div className="flex flex-col gap-4 mt-[220px]">
                         <h1 className="text-xl font-bold">Contact</h1>
 
                         <span className="table w-full">
@@ -54,7 +54,7 @@ export default function CvSheet({
                         </ul>
                     </div>
                 </div>
-                <div className="flex flex-col gap-16">
+                <div className="flex flex-col gap-16 p-[30px]">
                     <div className="mt-16 mr-16 mb-16">
                         <h1 className="mb-4 text-5xl font-extrabold">{name}</h1>
                         <p className="text-3xl font-medium">{job}</p>
