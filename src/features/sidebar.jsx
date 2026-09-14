@@ -61,13 +61,33 @@ export default function Sidebar({
                     <FaPlus />
                     Add programming Language
                 </button>
+                {librarys.map((input, index) => (
+                    <InputTextWithTrash
+                        key={index}
+                        placeholder="New Skill"
+                        value={input}
+                        onChange={(e) => handleSetValue(e.target.value, index, librarys, onLibrarysChange)}
+                        onDelete={() => handleRemoveInput(index, librarys, onLibrarysChange)}
+                    />
+                ))}
                 <button
+                    onClick={() => handleAddSkills(librarys, onLibrarysChange)}
                     className="w-80 text-white bg-gray-900 rounded-[10px] p-2 flex items-center gap-1 hover:scale-105 active:scale-95 transition-all ease-out"
                 >
                     <FaPlus />
                     Add library
                 </button>
+                {tools.map((input, index) => (
+                    <InputTextWithTrash
+                        key={index}
+                        placeholder="New Skill"
+                        value={input}
+                        onChange={(e) => handleSetValue(e.target.value, index, tools, onToolsChange)}
+                        onDelete={() => handleRemoveInput(index, tools, onToolsChange)}
+                    />
+                ))}
                 <button
+                    onClick={() => handleAddSkills(tools, onToolsChange)}
                     className="w-80 text-white bg-gray-900 rounded-[10px] p-2 flex items-center gap-1 hover:scale-105 active:scale-95 transition-all ease-out"
                 >
                     <FaPlus />

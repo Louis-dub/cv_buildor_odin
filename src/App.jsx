@@ -46,7 +46,7 @@ export default function App() {
                             onEmailChange={setEmailValue}
                             onGithubChange={setGithubValue}
                             onLanguagesChange={setLanguagesValue}
-                            onLibrarysChange={setLanguagesValue}
+                            onLibrarysChange={setLibraryesValue}
                             onToolsChange={setToolsValue}
                         />
                     </div>
@@ -60,6 +60,8 @@ export default function App() {
                         email={emailValue}
                         github={githubValue}
                         languages={languagesValue}
+                        libraries={librarysValue}
+                        tools={toolsValue}
                     />
                 </div>
             </main>
