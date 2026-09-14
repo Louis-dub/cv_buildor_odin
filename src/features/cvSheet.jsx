@@ -6,7 +6,8 @@ export default function CvSheet({
     job,
     call,
     email,
-    github
+    github,
+    languages
 }) {
     return (
         <div
@@ -44,6 +45,13 @@ export default function CvSheet({
                                 {github}
                             </span>
                         </span>
+
+                        <h1 className="text-xl font-bold">Skills</h1>
+                        <ul>
+                            <li>
+                                <span>Programming Languages: {languages.join(", ")} </span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div className="flex flex-col gap-16">

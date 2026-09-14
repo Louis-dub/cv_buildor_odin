@@ -59,6 +59,7 @@ export default function App() {
                         call={callValue}
                         email={emailValue}
                         github={githubValue}
+                        languages={languagesValue}
                     />
                 </div>
             </main>
