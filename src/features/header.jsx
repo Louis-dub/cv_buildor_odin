@@ -15,11 +15,6 @@ export default function Header({ onDownload }) {
                 </div>
                 <div>
                     <button
-                        className="text-xl text-white font-bold border-4 border-white rounded-[15px] p-2 hover:scale-110 active:scale-95 transition-all ease-out"
-                    >New CV</button>
-                </div>
-                <div>
-                    <button
                         onClick={onDownload}
                         className="text-xl text-white font-bold flex items-center gap-1 hover:scale-110 active:scale-95 transition-all ease-out"
                     >

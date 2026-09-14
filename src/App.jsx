@@ -1,28 +1,32 @@
+import { useState, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import Header from './features/header';
 import CvSheet from './features/cvSheet';
-import { useState } from 'react';
 import HeaderCreator from './features/headerCreator';
-import { usePDF } from 'react-to-pdf';
+import Sidebar from './features/sidebar';
 
 export default function App() {
     const [nameValue, setNameValue] = useState("");
     const [jobValue, setJobValue] = useState("");
+    const [callValue, setCallValue] = useState("");
+    const [emailValue, setEmailValue] = useState("");
+    const [githubValue, setGithubValue] = useState("");
+    const [languagesValue, setLanguagesValue] = useState([]);
+    const [librarysValue, setLibraryesValue] = useState([]);
+    const [toolsValue, setToolsValue] = useState([]);
+    const [langValue, setLangValue] = useState([]);
+    const [hobbies, setHobbies] = useState("");
 
-    const { toPDF, targetRef } = usePDF({
-        filename: `${nameValue.replace(/\s+/g, '_')}_CV.pdf`,
+    const contentRef = useRef(null);
+
+    const handleDownload = useReactToPrint({
+        contentRef,
+        documentTitle: `${nameValue.replace(/\s+/g, '_') || 'CV'}_CV`,
     });
-
-    function handleChangeName(newVal) {
-        setNameValue(newVal)
-    }
-
-    function handleChangeJob(newVal) {
-        setJobValue(newVal);
-    }
     
     return (
        <div className="flex flex-col min-h-screen">
-           <Header onDownload={toPDF} />
+           <Header onDownload={handleDownload} />
             <main className="flex-1 grid grid-cols-[2fr_3fr] gap-6 bg-gray-400">
                 <div className="flex flex-col items-end pt-[100px]">
                     <div>
@@ -30,16 +34,42 @@ export default function App() {
                         <HeaderCreator
                             nameValue={nameValue}
                             jobValue={jobValue}
-                            onNameChange={handleChangeName}
-                            onJobChange={handleChangeJob}
+                            onNameChange={setNameValue}
+                            onJobChange={setJobValue}
+                        />
+                        <Sidebar
+                            call={callValue}
+                            email={emailValue}
+                            github={githubValue}
+                            languages={languagesValue}
+                            librarys={librarysValue}
+                            tools={toolsValue}
+                            langs={langValue}
+                            hobbies={hobbies}
+                            onCallChange={setCallValue}
+                            onEmailChange={setEmailValue}
+                            onGithubChange={setGithubValue}
+                            onLanguagesChange={setLanguagesValue}
+                            onLibrarysChange={setLibraryesValue}
+                            onToolsChange={setToolsValue}
+                            onLangsChange={setLangValue}
+                            onHobbiesChange={setHobbies}
                         />
                     </div>
                 </div>
                 <div className='pt-[75px]'>
                     <CvSheet
-                        targetRef={targetRef}
+                        contentRef={contentRef}
                         name={nameValue}
                         job={jobValue}
+                        call={callValue}
+                        email={emailValue}
+                        github={githubValue}
+                        languages={languagesValue}
+                        libraries={librarysValue}
+                        tools={toolsValue}
+                        langs={langValue}
+                        hobbies={hobbies}
                     />
                 </div>
             </main>
