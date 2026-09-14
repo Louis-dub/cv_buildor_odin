@@ -6,11 +6,14 @@ import HeaderCreator from './features/headerCreator';
 import Sidebar from './features/sidebar';
 
 export default function App() {
-    const [nameValue, setNameValue] = useState("Louis DUBOIS");
-    const [jobValue, setJobValue] = useState("Étudiant");
-    const [callValue, setCallValue] = useState("06 99 30 79 58");
-    const [emailValue, setEmailValue] = useState("louis.dubois@epitech.eu");
-    const [githubValue, setGithubValue] = useState("github.com/Louis-dub");
+    const [nameValue, setNameValue] = useState("");
+    const [jobValue, setJobValue] = useState("");
+    const [callValue, setCallValue] = useState("");
+    const [emailValue, setEmailValue] = useState("");
+    const [githubValue, setGithubValue] = useState("");
+    const [languagesValue, setLanguagesValue] = useState([]);
+    const [librarysValue, setLibraryesValue] = useState([]);
+    const [toolsValue, setToolsValue] = useState([]);
 
     const contentRef = useRef(null);
 
@@ -18,26 +21,6 @@ export default function App() {
         contentRef,
         documentTitle: `${nameValue.replace(/\s+/g, '_') || 'CV'}_CV`,
     });
-
-    function handleChangeName(newVal) {
-        setNameValue(newVal)
-    }
-
-    function handleChangeJob(newVal) {
-        setJobValue(newVal);
-    }
-
-    function handleChangeCall(newVal) {
-        setCallValue(newVal);
-    }
-
-    function handleChangeEmail(newVal) {
-        setEmailValue(newVal);
-    }
-
-    function handleChangeGithub(newVal) {
-        setGithubValue(newVal);
-    }
     
     return (
        <div className="flex flex-col min-h-screen">
@@ -49,16 +32,22 @@ export default function App() {
                         <HeaderCreator
                             nameValue={nameValue}
                             jobValue={jobValue}
-                            onNameChange={handleChangeName}
-                            onJobChange={handleChangeJob}
+                            onNameChange={setNameValue}
+                            onJobChange={setJobValue}
                         />
                         <Sidebar
                             call={callValue}
                             email={emailValue}
                             github={githubValue}
-                            onCallChange={handleChangeCall}
-                            onEmailChange={handleChangeEmail}
-                            onGithubChange={handleChangeGithub}
+                            languages={languagesValue}
+                            librarys={librarysValue}
+                            tools={toolsValue}
+                            onCallChange={setCallValue}
+                            onEmailChange={setEmailValue}
+                            onGithubChange={setGithubValue}
+                            onLanguagesChange={setLanguagesValue}
+                            onLibrarysChange={setLanguagesValue}
+                            onToolsChange={setToolsValue}
                         />
                     </div>
                 </div>
