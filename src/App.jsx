@@ -81,6 +81,7 @@ export default function App() {
                         langs={langValue}
                         hobbies={hobbies}
                         xps={xpsValue}
+                        trainings={trainingsValue}
                     />
                 </div>
             </main>

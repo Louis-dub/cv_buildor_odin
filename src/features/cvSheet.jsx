@@ -12,7 +12,8 @@ export default function CvSheet({
     tools,
     langs,
     hobbies,
-    xps
+    xps,
+    trainings
 }) {
     return (
         <div
@@ -89,6 +90,14 @@ export default function CvSheet({
                                 <h1 className="text-xl font-bold">{xp.name}</h1>
                                 <p>{xp.start} - {xp.end}</p>
                                 <p style={{ whiteSpace: 'pre-line' }}>{xp.description}</p>
+                            </div>
+                        ))}
+                        <h1 className="text-3xl font-bold">Training Course</h1>
+                        {trainings.map(training => (
+                            <div className="mt-4 flex flex-col gap-2">
+                                <h1 className="text-xl font-bold">{training.name}</h1>
+                                <p>{training.start} - {training.end}</p>
+                                <p style={{ whiteSpace: 'pre-line' }}>{training.description}</p>
                             </div>
                         ))}
                     </div>
