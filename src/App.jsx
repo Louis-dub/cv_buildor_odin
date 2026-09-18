@@ -4,6 +4,7 @@ import Header from './features/header';
 import CvSheet from './features/cvSheet';
 import HeaderCreator from './features/headerCreator';
 import Sidebar from './features/sidebar';
+import XpCreator from './features/xpCreator';
 
 export default function App() {
     const [nameValue, setNameValue] = useState("");
@@ -16,6 +17,7 @@ export default function App() {
     const [toolsValue, setToolsValue] = useState([]);
     const [langValue, setLangValue] = useState([]);
     const [hobbies, setHobbies] = useState("");
+    const [xpsValue, setXpsValue] = useState([]);
 
     const contentRef = useRef(null);
 
@@ -27,9 +29,9 @@ export default function App() {
     return (
        <div className="flex flex-col min-h-screen">
            <Header onDownload={handleDownload} />
-            <main className="flex-1 grid grid-cols-[2fr_3fr] gap-6 bg-gray-400">
-                <div className="flex flex-col items-end pt-[100px]">
-                    <div>
+            <main className="flex-1 grid grid-cols-[1fr_1fr] gap-6 bg-gray-400">
+                <div className="flex p-[100px]">
+                    <div className="border-r border-black pr-[25px]">
                         <h1 className="text-2xl font-bold">General Inforamtion</h1>
                         <HeaderCreator
                             nameValue={nameValue}
@@ -56,6 +58,10 @@ export default function App() {
                             onHobbiesChange={setHobbies}
                         />
                     </div>
+                    <div className="pl-[25px]">
+                        <h1 className="text-2xl font-bold">Experience Inforamtion</h1>
+                        <XpCreator xps={xpsValue} onXpsChange={setXpsValue} />
+                    </div>
                 </div>
                 <div className='pt-[75px]'>
                     <CvSheet
@@ -70,6 +76,7 @@ export default function App() {
                         tools={toolsValue}
                         langs={langValue}
                         hobbies={hobbies}
+                        xps={xpsValue}
                     />
                 </div>
             </main>
