@@ -76,6 +76,7 @@ export default function App() {
                         tools={toolsValue}
                         langs={langValue}
                         hobbies={hobbies}
+                        xps={xpsValue}
                     />
                 </div>
             </main>

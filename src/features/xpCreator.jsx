@@ -1,8 +1,27 @@
 import InputText from "../components/inputText";
 import InputTextArea from "../components/inputTextArea";
 import InputDate from "../components/inputDate";
-import { useState } from "react";
 import { FaPlus, FaTrashAlt } from "react-icons/fa";
+
+const MONTHS = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
+function toInputFormat(displayValue) {
+    if (!displayValue) return "";
+    const [monthName, year] = displayValue.split(" ");
+    const monthIndex = MONTHS.indexOf(monthName);
+    if (monthIndex === -1 || !year) return "";
+    return `${year}-${String(monthIndex + 1).padStart(2, "0")}`;
+}
+
+function toDisplayFormat(inputValue) {
+    if (!inputValue) return "";
+    const [year, month] = inputValue.split("-");
+    const monthName = MONTHS[parseInt(month, 10) - 1];
+    return monthName ? `${monthName} ${year}` : "";
+}
 
 export default function XpCreator({ xps, onXpsChange }) {
     function handleAddXp() {
@@ -18,6 +37,7 @@ export default function XpCreator({ xps, onXpsChange }) {
 
     function handleSetDateJob(index, date, type) {
         const tempXps = [...xps];
+        date = toDisplayFormat(date);
         if (type === 0) {
             tempXps[index] = { ...tempXps[index], start: date };
         } else {
@@ -55,12 +75,12 @@ export default function XpCreator({ xps, onXpsChange }) {
                     />
                     <InputDate
                         placeholder="Start Date"
-                        value={xp.start}
+                        value={toInputFormat(xp.start)}
                         onChange={(value) => handleSetDateJob(index, value, 0)}
                     />
                     <InputDate
                         placeholder="End Date"
-                        value={xp.end}
+                        value={toInputFormat(xp.end)}
                         onChange={(value) => handleSetDateJob(index, value, 1)}
                     />
                     <InputTextArea
