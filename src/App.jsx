@@ -5,6 +5,7 @@ import CvSheet from './features/cvSheet';
 import HeaderCreator from './features/headerCreator';
 import Sidebar from './features/sidebar';
 import XpCreator from './features/xpCreator';
+import TrainingCreator from './features/trainingCreator';
 
 export default function App() {
     const [nameValue, setNameValue] = useState("");
@@ -18,6 +19,7 @@ export default function App() {
     const [langValue, setLangValue] = useState([]);
     const [hobbies, setHobbies] = useState("");
     const [xpsValue, setXpsValue] = useState([]);
+    const [trainingsValue, setTrainingsValue] = useState([]);
 
     const contentRef = useRef(null);
 
@@ -61,6 +63,8 @@ export default function App() {
                     <div className="pl-[25px]">
                         <h1 className="text-2xl font-bold">Experience Inforamtion</h1>
                         <XpCreator xps={xpsValue} onXpsChange={setXpsValue} />
+                        <h1 className="text-2xl font-bold">Training Information</h1>
+                        <TrainingCreator trainings={trainingsValue} onTrainingsChange={setTrainingsValue} />
                     </div>
                 </div>
                 <div className='pt-[75px]'>
